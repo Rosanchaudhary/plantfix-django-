@@ -155,3 +155,5 @@ REST_FRAMEWORK = {
 #   api_key = "964743935735364", 
 #   api_secret = "cNnrBhZTCEuQPl-vP0lgq7gQScc" 
 # )
+import django_heroku
+django_heroku.settings(locals())
