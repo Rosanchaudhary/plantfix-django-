@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 # import cloudinary
 # import cloudinary.uploader
 # import cloudinary.api
-import django_heroku
-django_heroku.settings(locals())
+# import django_heroku
+# django_heroku.settings(locals())
 
 from pathlib import Path
 import os
