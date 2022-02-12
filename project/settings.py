@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+
 # import cloudinary
 # import cloudinary.uploader
 # import cloudinary.api
@@ -21,7 +22,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
 
-
+PORT = os.getenv("$PORT", default="5000")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -50,7 +51,7 @@ INSTALLED_APPS = [
     'disease',
     'discussion',
     'django_userforeignkey',
-    'cloudinary'
+
 ]
 
 MIDDLEWARE = [

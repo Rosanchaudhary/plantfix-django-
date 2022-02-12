@@ -29,5 +29,5 @@ urlpatterns = [
     url(r"^$",views.index, name="homepage"),
     url(r"predictImage", views.predictImage, name="predictImage"),
     
-]
+] 
 urlpatterns +=  static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
