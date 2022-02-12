@@ -39,8 +39,10 @@ def registration_view(request):
                                 'refresh': str(refresh),
                                 'access': str(refresh.access_token),
                             }
+            return Response(data, status=status.HTTP_201_CREATED)
        
         else:
             data = serializer.errors
+            return Response(data, status=status.HTTP_400_BAD_REQUEST)
         
-        return Response(data, status=status.HTTP_201_CREATED)
+        
