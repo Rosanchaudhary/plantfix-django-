@@ -22,4 +22,4 @@ class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Message
-        exclude = ('group',)
+        exclude = ('group',) 

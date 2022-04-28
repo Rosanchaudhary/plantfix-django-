@@ -9,7 +9,7 @@ from users import models
 
 
 @api_view(['POST',])
-def logout_view(request):
+def logout_view(request): 
 
     if request.method == 'POST':
         request.user.auth_token.delete()

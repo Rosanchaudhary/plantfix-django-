@@ -70,7 +70,7 @@ class MessageCreate(generics.CreateAPIView):
         return Message.objects.all()
 
     def perform_create(self, serializer):
-        pk = self.kwargs.get('pk')
+        pk = self.kwargs.get('pk') 
         group = DiscussionGroup.objects.get(pk=pk)
         print(group)
         group.save()

@@ -10,4 +10,4 @@ urlpatterns = [
     path('<int:pk>/messages/', MessageList.as_view(), name='message-list'),
 
 
-]
+] 

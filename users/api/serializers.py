@@ -1,6 +1,8 @@
+from dataclasses import field
+from pyexpat import model
 from django.contrib.auth.models import User
 from rest_framework import serializers
-
+        
 
 class RegistrationSerializer(serializers.ModelSerializer):
     password2 = serializers.CharField(style={'input_type': 'password'}, write_only=True)
@@ -13,7 +15,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         }
      
     def save(self):
-
+ 
         password = self.validated_data['password']
         password2 = self.validated_data['password2']
 
