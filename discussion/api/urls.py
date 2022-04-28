@@ -9,5 +9,5 @@ urlpatterns = [
     path('<int:pk>/message-create/', MessageCreate.as_view(), name='message-create'),
     path('<int:pk>/messages/', MessageList.as_view(), name='message-list'),
 
-
+ 
 ] 

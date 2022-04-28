@@ -9,7 +9,7 @@ class DiscussionGroup(models.Model):
     name = models.CharField(max_length=30)
     about = models.CharField(max_length=150)
 
-    def __str__(self):
+    def __str__(self): 
         return self.name
 
 class Message(models.Model):

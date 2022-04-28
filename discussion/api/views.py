@@ -5,6 +5,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework import status
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 from discussion.api.serializers import DiscussionGroupSerializer,MessageSerializer
 from discussion.models import DiscussionGroup,Message
@@ -14,7 +16,6 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class Discussion(APIView):
-    permission_classes = (IsAuthenticated,)
     def get(self, request):
 
         discussion = DiscussionGroup.objects.all()
@@ -22,10 +23,11 @@ class Discussion(APIView):
         discussion, many=True, context={'request': request})
         return Response(serializer.data)
 
+    @method_decorator(login_required)
     def post(self, request):
         
         serializer = DiscussionGroupSerializer(data=request.data)
-        print(serializer)
+        print(serializer) 
         print(request.user)
         if serializer.is_valid():
             serializer.save()

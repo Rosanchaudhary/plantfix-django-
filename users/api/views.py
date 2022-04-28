@@ -16,7 +16,7 @@ def logout_view(request):
         return Response(status=status.HTTP_200_OK)
 
 
-@api_view(['POST',]) 
+@api_view(['POST',])  
 def registration_view(request): 
 
     if request.method == 'POST':
