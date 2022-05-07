@@ -15,6 +15,7 @@ model = pickle.load(open('./models/model.h5', 'rb'))
 class PredictImage(APIView):
     def post(self,request,format=None):
         fileObj = request.FILES['image']
+        
         fs = FileSystemStorage()
         filePathName = fs.save(fileObj.name,fileObj)
         filePathName = fs.url(filePathName)

@@ -29,5 +29,5 @@ def predictImage(request):
         print(f'{val} = {probability[0][ind]*100}%')
     print("The predicted image is : "+Categories[model.predict(img_resize)[0]])
 
-    context = {'filePathName':filePathName,'predictedLabel':Categories[model.predict(img_resize)[0]],'index':model.predict(img_resize)[0]}
+    context = {'filePathName':filePathName,'predictedLabel':Categories[model.predict(img_resize)[0]]}
     return render(request,'index.html',context)
