@@ -12,10 +12,10 @@ from discussion.api.serializers import DiscussionGroupSerializer,MessageSerializ
 from discussion.models import DiscussionGroup,Message
 from django.contrib.auth import get_user_model
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.pagination import LimitOffsetPagination
+# from rest_framework.pagination import LimitOffsetPagination
 
 
-class Discussion(APIView,LimitOffsetPagination):
+class Discussion(APIView):
     def get(self, request):
         discussion = DiscussionGroup.objects.all()
         results = self.paginate_queryset(discussion, request, view=self)
