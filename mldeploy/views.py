@@ -15,7 +15,7 @@ def index(request):
 
 
 def predictImage(request):
-    fileObj = request.FILES['filePath']
+    fileObj = request.FILES['image']
     fs = FileSystemStorage()
     filePathName = fs.save(fileObj.name,fileObj)
     filePathName = fs.url(filePathName)
