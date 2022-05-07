@@ -18,10 +18,11 @@ from rest_framework.permissions import IsAuthenticated
 class Discussion(APIView):
     def get(self, request):
         discussion = DiscussionGroup.objects.all()
-        results = self.paginate_queryset(discussion, request, view=self)
+        # results = self.paginate_queryset(discussion, request, view=self)
         serializer = DiscussionGroupSerializer(
-        results, many=True, context={'request': request})
-        return self.get_paginated_response(serializer.data)
+        discussion, many=True, context={'request': request})
+        # return self.get_paginated_response(serializer.data)
+        return Response(serializer.data)
 
     @method_decorator(login_required)
     def post(self, request):
