@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'disease',
     'discussion',
     'django_userforeignkey',
-    'cloudinary'
+    'cloudinary',
+    'userprofile'
 
 ]
 

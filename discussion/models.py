@@ -5,7 +5,6 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class DiscussionGroup(models.Model):
-    #creater = models.ForeignKey(User, on_delete=models.CASCADE)
     creater = UserForeignKey(auto_user_add=True)
     name = models.CharField(max_length=30)
     about = models.CharField(max_length=150)
