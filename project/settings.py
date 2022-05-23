@@ -9,10 +9,10 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
-# import cloudinary
-# import cloudinary.uploader
-# import cloudinary.api
 # import django_heroku
 # django_heroku.settings(locals())
 
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'disease',
     'discussion',
     'django_userforeignkey',
+    'cloudinary'
 
 ]
 
@@ -158,10 +159,10 @@ REST_FRAMEWORK = {
 }
 
 # # adding config
-# cloudinary.config( 
-#   cloud_name = "dlgdqsm81", 
-#   api_key = "964743935735364", 
-#   api_secret = "cNnrBhZTCEuQPl-vP0lgq7gQScc" 
-# )
+cloudinary.config( 
+  cloud_name = "deydgwesp", 
+  api_key = "594674888167739", 
+  api_secret = "9OWlXLONByE0LdXrhDz318sxvc0" 
+)
 import django_heroku
 django_heroku.settings(locals())

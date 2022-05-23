@@ -47,6 +47,7 @@ class DiscussionGroupDetail(APIView):
 
         serializer = DiscussionGroupSerializer(
             platform, context={'request': request})
+        print(serializer)
         return Response(serializer.data)
 
     def put(self, request, pk):
