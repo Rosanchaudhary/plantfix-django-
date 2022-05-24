@@ -1,7 +1,7 @@
-from dataclasses import field
-from pyexpat import model
 from django.contrib.auth.models import User
 from rest_framework import serializers
+
+from users.models import OTP
         
 
 class RegistrationSerializer(serializers.ModelSerializer):
@@ -30,3 +30,10 @@ class RegistrationSerializer(serializers.ModelSerializer):
         account.save()
 
         return account
+
+class OTPSerializer(serializers.ModelSerializer):
+    # creater = RegistrationSerializer(read_only=True)
+    
+    class Meta:
+        model = OTP
+        fields = "__all__"

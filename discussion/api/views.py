@@ -27,11 +27,8 @@ class Discussion(APIView):
 
     @method_decorator(login_required)
     def post(self, request):
-        print(request)
         serializer = DiscussionGroupSerializer(data=request.data)
-        print(serializer) 
-        print(request.user)
-        if serializer.is_valid():
+        if serializer.is_valid(): 
             serializer.save()
             return Response(serializer.data)
         else:

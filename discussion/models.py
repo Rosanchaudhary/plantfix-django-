@@ -11,7 +11,7 @@ class DiscussionGroup(models.Model):
     image = CloudinaryField('image',default="Some String")
 
     def __str__(self): 
-        return self.name
+        return self.name 
 
 class Message(models.Model):
     sender = UserForeignKey(auto_user_add=True)
