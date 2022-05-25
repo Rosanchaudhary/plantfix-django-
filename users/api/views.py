@@ -74,6 +74,7 @@ def verifyuser(request):
                 user.is_active = True
                 user.save()
                 resdata['response'] = "Registration Successful!"
+                resdata['username'] = user.username
 
                 refresh = RefreshToken.for_user(user)
                 resdata['token'] = {
