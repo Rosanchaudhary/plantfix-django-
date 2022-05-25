@@ -10,7 +10,7 @@ class DiscussionGroupSerializer(serializers.ModelSerializer):
    #creater = serializers.StringRelatedField(read_only=True)
     creater = RegistrationSerializer(read_only=True)
 
-
+ 
     class Meta:
         model = DiscussionGroup
         fields = "__all__"

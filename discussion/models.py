@@ -6,7 +6,7 @@ from cloudinary.models import CloudinaryField
 
 class DiscussionGroup(models.Model):
     creater = UserForeignKey(auto_user_add=True)
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30) 
     about = models.CharField(max_length=150)
     image = CloudinaryField('image',default="Some String")
 

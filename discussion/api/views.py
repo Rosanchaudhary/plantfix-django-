@@ -14,6 +14,15 @@ from django.contrib.auth import get_user_model
 from rest_framework.permissions import IsAuthenticated
 # from rest_framework.pagination import LimitOffsetPagination
 
+from rest_framework.decorators import api_view
+
+# @login_required(login_url='/accounts/login/')
+# @api_view(['GET',]) 
+# def get_user_date(request):
+#         profile = request.user.get_profile()
+#         return Response(profile, status=status.HTTP_201_CREATED)
+
+
 
 class Discussion(APIView):
     def get(self, request):
@@ -25,7 +34,7 @@ class Discussion(APIView):
         # return self.get_paginated_response(serializer.data)
         return Response(serializer.data)
 
-    @method_decorator(login_required)
+    @method_decorator(login_required) 
     def post(self, request):
         serializer = DiscussionGroupSerializer(data=request.data)
         if serializer.is_valid(): 
@@ -68,13 +77,12 @@ class MessageCreate(generics.CreateAPIView):
     serializer_class = MessageSerializer
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self): 
+    def get_queryset(self):  
         return Message.objects.all()
 
     def perform_create(self, serializer):
         pk = self.kwargs.get('pk') 
         group = DiscussionGroup.objects.get(pk=pk)
-        print(group)
         group.save()
         serializer.save(group=group)
 

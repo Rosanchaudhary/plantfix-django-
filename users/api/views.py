@@ -18,6 +18,9 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode
 from project.token import account_activation_token 
 from django.contrib.auth.models import User 
+from django.contrib.auth.decorators import login_required
+from rest_framework.views import APIView
+from django.utils.decorators import method_decorator
 
 @api_view(['POST',])
 def signup(request):
@@ -128,5 +131,19 @@ def registration_view(request):
         else:
             data = serializer.errors
             return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+class GetUser(APIView):
+    @method_decorator(login_required) 
+    def get(self,request):
+        print("Helo")
+        profile = {
+            "username":request.user.username,
+            "email":request.user.email
+            }
+        print(profile)
+        return Response(profile, status=status.HTTP_201_CREATED)
+
         
         
