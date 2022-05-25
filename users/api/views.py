@@ -82,7 +82,11 @@ def verifyuser(request):
                             }
                 return Response(resdata, status=status.HTTP_201_CREATED)
             else:
-                return Response(status=status.HTTP_201_CREATED)
+                errorMessage = {
+                    "code":"400",
+                    "message":"Wrong Pin"
+                    }
+                return Response(errorMessage, status=status.HTTP_201_CREATED)
        
         else:
             data = serializer.errors
