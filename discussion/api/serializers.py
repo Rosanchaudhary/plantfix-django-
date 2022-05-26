@@ -18,7 +18,7 @@ class DiscussionGroupSerializer(serializers.ModelSerializer):
 
 class MessageSerializer(serializers.ModelSerializer):
     #sender = serializers.StringRelatedField(read_only=True)
-    # creater = RegistrationSerializer(read_only=True)
+    creater = RegistrationSerializer(read_only=True)
 
 
     class Meta:
